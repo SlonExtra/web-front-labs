@@ -22,3 +22,23 @@ header{
     font-family: Arial;
     margin: 0px;
 }
+a {
+    color: green;
+    text-decoration: none;
+    transition: 1s 2s;
+}
+a:hover {
+    color: red;
+    text-decoration: underline;
+    transition: 0.3s;
+}
+a:active{
+    color: black;
+    opacity: 0.3;
+}
+/* a:link{
+    color: aquamarine;
+}
+a:visited{
+    color: coral;
+} */
