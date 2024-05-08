@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руди Дмитрий Константинович. Карточки</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+</head>
+<style>
+    .card-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 0 -15px;
+    }
+    .card {
+        width: 15%;
+        height: 300px;
+        background-color: rgb(185, 236, 185);
+        border: 1px darkgreen;
+        margin: 50px;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 10px;
+        box-sizing: border-box;
+    }
+    .card__text {
+        text-align: center;
+        margin-top: 10px;
+    }
+    .card__image {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 200px;
+    }
+    .card__footer {
+        text-align: right;
+    }
+</style>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 4
+    </header>
+    <main>
+        <div class="card-container">
+            <div class="card">
+                <div class="card__text">Беспроводные наушники JBL PRO JECT JB860</div>
+                <img src="n1.webp" alt="Изображение1" class="card__image">
+                <div class="card__footer">Стоимость: 5000₽</div>
+            </div>
+            <div class="card">
+                <div class="card__text">Наушники JBL Tune Buds</div>
+                <img src="n2.png" alt="Изображение2" class="card__image">
+                <div class="card__footer">Стоимость: 3050₽</div>
+            </div>
+            <div class="card">
+                <div class="card__text">Наушники беспроводные накладные Marshall Major IV</div>
+                <img src="n3.webp" alt="Изображение3" class="card__image">
+                <div class="card__footer">Стоимость: 2500₽</div>
+            </div>
+            <div class="card">
+                <div class="card__text">Игровые наушники Sony Inzone H5 белый</div>
+                <img src="n4.webp" alt="Изображение4" class="card__image">
+                <div class="card__footer">Стоимость: 4999₽</div>
+            </div>
+        </div>
+        <div class="card-container">
+            <div class="card">
+                <div class="card__text">Наушники Monster Beats Studio Black</div>
+                <img src="n5.jpeg" alt="Изображение5" class="card__image">
+                <div class="card__footer">Стоимость: 18000₽</div>
+            </div>
+            <div class="card">
+                <div class="card__text">Наушники SoundBeast Bluetooth Cat Ear</div>
+                <img src="n6.jpg" alt="Изображение6" class="card__image">
+                <div class="card__footer">Стоимость: 2800₽</div>
+            </div>
+            <div class="card">
+                <div class="card__text">Наушники противошумные 3M Peltor Optime 3 стандартное крепление</div>
+                <img src="n7.jpg" alt="Изображение7" class="card__image">
+                <div class="card__footer">Стоимость: 2400₽</div>
+            </div>
+            <div class="card">
+                <div class="card__text">Наушники Grado SR125e</div>
+                <img src="n8.jpg" alt="Изображение8" class="card__image">
+                <div class="card__footer">Стоимость: 1950₽</div>
+            </div>
+        </div>
+    </main>
+
+
+    <footer>
+        &copy; Руди Дмитрий, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
