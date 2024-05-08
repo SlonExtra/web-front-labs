@@ -42,3 +42,13 @@ a:active{
 a:visited{
     color: coral;
 } */
+div.menu{
+    border: 1px solid #00880080;
+    border-radius: 5px;
+    width: 300px;
+    margin: 0 auto;
+}
+div.menu:hover{
+    background-color: #ffffff30;
+    box-shadow: 0px 0px 15px #00000030;
+}
