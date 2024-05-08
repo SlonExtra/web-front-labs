@@ -8,13 +8,17 @@ main{
     background-color: lightgreen;
     color: maroon;
     font-family: Arial;
-    margin: 0px;
+    margin: 10px 20px 45px;
 }
 footer{
     background-color: lightcoral;
     color: maroon;
     font-family: Arial;
     margin: 0px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
 }
 header{
     background-color: lightpink;
