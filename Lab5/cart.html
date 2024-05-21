@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руди Дмитрий Константинович. Корзина</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="..favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function CleanBoxes() {
+            let inputA = document.getElementById('Apples');
+            inputA.value = '';
+            let inputP = document.getElementById('Pearses');
+            inputP.value = '';
+            let inputO = document.getElementById('Oranges');
+            inputO.value = '';
+            let inputM = document.getElementById('Melons');
+            inputM.value = '';
+            let inputWM = document.getElementById('Watermelons');
+            inputWM.value = '';
+            document.getElementById('result').innerHTML = 'Сумма:';
+        }
+        function SumProducts() {
+            let inputA = document.getElementById('Apples').value;
+            let inputP = document.getElementById('Pearses').value;
+            let inputO = document.getElementById('Oranges').value;
+            let inputM = document.getElementById('Melons').value;
+            let inputWM = document.getElementById('Watermelons').value;
+
+            let cost = inputA * 100 + inputP * 80 + inputO * 150 + inputM * 300 + inputWM * 250
+            document.getElementById('result').innerHTML = 'Сумма: ' + cost + ' руб.';
+        }
+    </script>
+    <style>
+        #output {
+            border: 2px solid;
+            border-radius: 10px;
+            width: 300px;
+            height: 450px;
+            background-color: #8ee4af;
+        }
+        .h1 {
+            font-size: 28px;
+            padding-top: 10px;
+            text-align: center;
+        }
+        .product {
+            font-size: 17px;
+            padding-top: 10px;
+            text-align: center;
+        }
+        
+        .summ {
+            width: 150px;
+            margin-left: 5px;
+            margin-top: 40px;
+            height: 35px;
+            background-color: #8ee4af;
+        }
+        .buttons-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 40px;
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 4
+    </header>
+
+    <main>
+        <div id="output">
+            <div class="h1">
+                Корзина товаров
+            </div>
+            <div class="product">
+                <label>Яблоки (100руб/шт)<br><input type="number" min="0" id="Apples" placeholder="Сколько яблок"></label><br>
+            </div>
+            <div class="product">
+                <label>Груши (80руб/шт)<br><input type="number" min="0" id="Pearses" placeholder="Сколько груш"></label><br>
+            </div>
+            <div class="product">
+                <label>Апельсины (150руб/шт)<br><input type="number" min="0" id="Oranges" placeholder="Сколько апельсинов"></label><br>
+            </div>
+            <div class="product">
+                <label>Дыни (300руб/шт)<br><input type="number" min="0" id="Melons" placeholder="Сколько дынь"></label><br>
+            </div>
+            <div class="product">
+                <label>Арбузы (250руб/шт)<br><input type="number" min="0" id="Watermelons" placeholder="Сколько Арбузов"></label><br>
+            </div>
+            <div class="buttons-container">
+                <input type="button" value="Рассчитать" onclick="SumProducts()">
+                <input type="button" value="Очистить значение" onclick="CleanBoxes()">
+            </div>
+            <div class="summ" id="result">
+                Сумма: 
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Руди Дмитрий, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
