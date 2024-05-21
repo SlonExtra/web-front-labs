@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руди Дмитрий Константинович. Фильтры</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="../favicon-32x32.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .filters {
+            margin: 20px;
+        }
+        .mountPict {
+            width: 50%;
+            margin-left: 450px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 5
+    </header>
+    <main>
+        <div class="filters">
+            Фильтр blur:
+            <input type="range" min="0" max="20" value="0" onchange="applyFilters()" id="blurValue">
+            <span id="blurOutput"></span><br>
+            Фильтр brightness:
+            <input type="range" min="0" max="500" value="100" onchange="applyFilters()" id="brightnessValue">
+            <span id="brightnessOutput"></span><br>
+            Фильтр contrast:
+            <input type="range" min="0" max="500" value="100" onchange="applyFilters()" id="contrastValue">
+            <span id="contrastOutput"></span><br>
+            Фильтр grayscale:
+            <input type="range" min="0" max="100" value="0" onchange="applyFilters()" id="grayscaleValue">
+            <span id="grayscaleOutput"></span><br>
+            Фильтр hue-rotate:
+            <input type="range" min="0" max="360" value="0" onchange="applyFilters()" id="huerotateValue">
+            <span id="huerotateOutput"></span><br>
+            Фильтр invert:
+            <input type="range" min="0" max="100" value="0" onchange="applyFilters()" id="invertValue">
+            <span id="invertOutput"></span><br>
+            Фильтр saturate:
+            <input type="range" min="0" max="500" value="100" onchange="applyFilters()" id="saturateValue">
+            <span id="saturateOutput"></span><br>
+            Фильтр sepia:
+            <input type="range" min="0" max="100" value="0" onchange="applyFilters()" id="sepiaValue">
+            <span id="sepiaOutput"></span><br>
+        </div>
+        <div><img src="RickRubin.webp" id='Image' class="mountPict"></div>
+    </main>
+    <footer>
+        &copy; Руди Дмитрий, ФБИ-22, 2 курс, 2024
+    </footer>
+    <script>
+        function applyFilters() {
+            let blurValue = document.getElementById('blurValue').value + 'px';
+            let brightnessValue = document.getElementById('brightnessValue').value + '%';
+            let contrastValue = document.getElementById('contrastValue').value + '%';
+            let grayscaleValue = document.getElementById('grayscaleValue').value + '%';
+            let huerotateValue = document.getElementById('huerotateValue').value + 'deg';
+            let invertValue = document.getElementById('invertValue').value + '%';
+            let saturateValue = document.getElementById('saturateValue').value + '%';
+            let sepiaValue = document.getElementById('sepiaValue').value + '%';
+
+            document.getElementById('Image').style.filter = `blur(${blurValue}) brightness(${brightnessValue}) contrast(${contrastValue}) grayscale(${grayscaleValue}) hue-rotate(${huerotateValue}) invert(${invertValue}) saturate(${saturateValue}) sepia(${sepiaValue})`;
+
+            document.getElementById('blurOutput').innerText = blurValue;
+            document.getElementById('brightnessOutput').innerText = brightnessValue;
+            document.getElementById('contrastOutput').innerText = contrastValue;
+            document.getElementById('grayscaleOutput').innerText = grayscaleValue;
+            document.getElementById('huerotateOutput').innerText = huerotateValue;
+            document.getElementById('invertOutput').innerText = invertValue;
+            document.getElementById('saturateOutput').innerText = saturateValue;
+            document.getElementById('sepiaOutput').innerText = sepiaValue;
+        }
+    </script>
+</body>
+</html>
