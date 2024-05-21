@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руди Дмитрий Константинович. Круги</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" sizes="16x16" href="../favicon-16x16.png">
+    <link rel="icon" sizes="32x32" href="../favicon-32x32.png">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle {
+            position: absolute;
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            transition: all 0.5s ease-in-out;
+            cursor: pointer;
+        }
+        .hidden {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        button {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 5
+    </header>
+    <main class="container">
+        <div class="circle" style="top: 100px; left: 100px; background-color: #f44336;" onclick="hideCircle(this)">1</div>
+        <div class="circle" style="top: 200px; left: 200px; background-color: #e91e63;" onclick="hideCircle(this)">2</div>
+        <div class="circle" style="top: 300px; left: 300px; background-color: #9c27b0;" onclick="hideCircle(this)">3</div>
+        <div class="circle" style="top: 400px; left: 400px; background-color: #673ab7;" onclick="hideCircle(this)">4</div>
+        <div class="circle" style="top: 500px; left: 500px; background-color: #3f51b5;" onclick="hideCircle(this)">5</div>
+        <div class="circle" style="top: 600px; left: 600px; background-color: #2196f3;" onclick="hideCircle(this)">6</div>
+        <div class="circle" style="top: 700px; left: 700px; background-color: #03a9f4;" onclick="hideCircle(this)">7</div>
+        <div class="circle" style="top: 600px; left: 800px; background-color: #00bcd4;" onclick="hideCircle(this)">8</div>
+        <div class="circle" style="top: 500px; left: 900px; background-color: #009688;" onclick="hideCircle(this)">9</div>
+        <div class="circle" style="top: 400px; left: 1000px; background-color: #4caf50;" onclick="hideCircle(this)">10</div>
+    </main>
+    <footer>
+        &copy; Руди Дмитрий, ФБИ-22, 2 курс, 2024
+    </footer>
+    <button onclick="showAllCircles()">Вернуть кружочки</button>
+    <script>
+        function hideCircle(circle) {
+            circle.style.transition = "all 0.5s";
+            circle.style.opacity = "0";
+            circle.style.width = "0";
+            circle.style.height = "0";
+        }
+        function showAllCircles() {
+            let circles = document.querySelectorAll('.circle');
+            circles.forEach(circle => {
+                circle.style.transition = "all 0.5s";
+                circle.style.opacity = "1";
+                circle.style.width = "75px";
+                circle.style.height = "75px";
+            });
+        }
+    </script>
+</body>
+</html>
