@@ -72,6 +72,7 @@
         // Выводим максимальное и минимальное значения стоимости акции
         stockDetails.innerHTML += `Максимальное значение стоимости акции: <b>${maxPrice}</b><br>`;
         stockDetails.innerHTML += `Минимальное значение стоимости акции: <b>${minPrice}</b><br>`;
+        document.getElementById("bttn").style.display = 'none';
     }
 </script>
 <style>
@@ -94,7 +95,7 @@
     </header>
 
     <main>
-        <button class="button" onclick="showStocks()">Курс акций Русагро</button><br><br>
+        <button id="bttn" class="button" onclick="showStocks()">Курс акций Русагро</button><br><br>
         <table id="stocks-table"></table><br><br>
         <div id="stock-details"></div>
     </main>

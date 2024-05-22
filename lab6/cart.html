@@ -13,19 +13,19 @@
     function calculateTotal() {
         let balance = parseFloat(document.getElementById('balance').value) || 0;
         let bread = parseInt(document.getElementById('Bread').value) || 0;
-        let eggs = parseInt(document.getElementById('Chocko').value) || 0;
+        let eggs = parseInt(document.getElementById('Eggs').value) || 0;
         let milk = parseInt(document.getElementById('Milk').value) || 0;
         let grechka = parseInt(document.getElementById('Grechka').value) || 0;
         let flour = parseInt(document.getElementById('Flour').value) || 0;
         let apples = parseInt(document.getElementById('Apples').value) || 0;
-        let qiwi = parseInt(document.getElementById('Pancake').value) || 0;
+        let qiwi = parseInt(document.getElementById('Qiwi').value) || 0;
 
-        if (bread < 0 || eggs < 0 || milk < 0 || grechka < 0|| flour < 0 || apples < 0 || qiwi < 0) {
+        if (bread < 0 || eggs < 0 || milk < 0 || grechka < 0 || flour < 0 || apples < 0 || qiwi < 0) {
             alert('Количество товара не может быть отрицательным!');
             return;
         }
 
-        let total = (bread * 40 + eggs * 150 + milk * 80 + grechka * 80 + flour * 120 + apples * 210 + qiwi * 70);
+        let total = (bread * 40 + eggs * 15 + milk * 80 + grechka * 80 + flour * 120 + apples * 210 + qiwi * 70);
         if (total === 0) {
             alert('Выберите хотя бы один товар!');
             return;
@@ -43,12 +43,12 @@
     function resetValues() {
         document.getElementById('balance').value = '';
         document.getElementById('Bread').value = '';
-        document.getElementById('Chocko').value = '';
+        document.getElementById('Eggs').value = '';
         document.getElementById('Milk').value = '';
         document.getElementById('Grechka').value = '';
         document.getElementById('Flour').value = '';
-        document.getElementById('Apples').innerHTML = '';
-        document.getElementById('Pancake').innerHTML = '';
+        document.getElementById('Apples').value = '';
+        document.getElementById('Qiwi').value = '';
         document.getElementById('result').innerHTML = '';
     }
 </script>
