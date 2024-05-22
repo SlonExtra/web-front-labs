@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Руди Дмитрий Константинович. погода</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon/favicon-16x16.png">
+    <link rel="icon" href="../favicon/favicon-32x32.png">
+</head>
+<style>
+    .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    .button:hover {
+        background-color: #45a049;
+    }
+    .exchange-info {
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 10px;
+            font-family: Arial, sans-serif;
+        }
+        table {
+            border-collapse: collapse;
+            width: 20%;
+        }
+        th, td {
+            border: 1px solid #000000;
+            text-align: left;
+            padding: 8px;
+        }
+        th {
+            background-color: green;
+        }
+</style>
+<script>
+    // Функция для запроса прогноза погоды
+    function getWeather() {
+        // URL для запроса
+        const url = "https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok";
+
+        // Отправляем запрос
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                // Получаем массивы с временем и температурой
+                const timeArray = data.hourly.time;
+                const temperatureArray = data.hourly.temperature_2m;
+
+                // Отображаем температуру на 8 утра, 12 дня и 20 вечера
+                const weatherElement = document.getElementById('weather');
+                weatherElement.innerHTML = '';
+
+                // Ищем температуры для нужных часов
+                const targetHours = [8, 12, 20];
+                targetHours.forEach(hour => {
+                    const temperature = getTemperature(hour, timeArray, temperatureArray);
+                    const temperatureString = temperature !== null ? `${temperature} °C` : 'Нет данных';
+                    weatherElement.innerHTML += `<p>Температура в ${hour}:00: <b>${temperatureString}</b></p>`;
+                });
+            })
+            .catch(error => console.error('Ошибка получения прогноза погоды:', error));
+    }
+
+    // Функция для получения температуры на указанный час
+    function getTemperature(hour, timeArray, temperatureArray) {
+        for (let i = 0; i < timeArray.length; i++) {
+            const time = new Date(timeArray[i]);
+            if (time.getHours() === hour) {
+                return temperatureArray[i];
+            }
+        }
+        return null; // Если данные не найдены
+    }
+</script>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная 7
+    </header>
+
+    <main>
+        <h1>Прогноз погоды для Новосибирска</h1>
+        <button class="button" onclick="getWeather()">Получить погоду</button>
+        <div id="weather"></div>
+    </main>
+
+    <footer>
+        &copy; Руди Дмитрий, ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
