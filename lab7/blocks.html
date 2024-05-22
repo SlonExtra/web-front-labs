@@ -81,7 +81,29 @@ function add20_50() {
                 main.appendChild(newBlock);
             }
         }
-        f
+        function add10_80() {
+            let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+            for (let i = 10; i >= -80; i -= 3) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = '#77c081';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '2px solid black';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '100%';
+                newBlock.innerHTML = `Круг со значением: ${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                newBlock.style.width = '180px';
+                newBlock.style.display = 'inline-block'; 
+
+                main.appendChild(newBlock);
+            }
+        }
+        
 </script>
 <body>
     <header>
