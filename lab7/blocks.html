@@ -103,7 +103,66 @@ function add20_50() {
                 main.appendChild(newBlock);
             }
         }
-        
+        function opacityBlocks() {
+            let main = document.querySelector('main');
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+            let startingOpacity = 0;
+            let opacityIncrement = 10; 
+            for (let i = 1; i <= 10 ; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = '#77c081';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '2px solid black';
+                newBlock.style.marginTop = '7px';
+                newBlock.style.borderRadius = '20px';
+                newBlock.innerHTML = `Полупрозрачный блок со значением: ${i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '11px';
+                newBlock.style.width = '180px';
+
+                let currentOpacity = startingOpacity + opacityIncrement * i;
+
+                // Установка ширины с использованием единицы измерения (пиксели по умолчанию)
+                newBlock.style.opacity = `${currentOpacity}%`;
+
+                main.appendChild(newBlock);
+            }
+        }
+        function colorBlocks() {
+            let main = document.querySelector('main');
+            let numberOfBlocks = parseInt(document.getElementById('blocksNumberColor').value);
+            let buttons = Array.from(main.querySelectorAll('button')); 
+            let blocks = Array.from(main.querySelectorAll('div:not(button)')); 
+
+            blocks.forEach(block => block.remove()); 
+
+            for (let i = 0; i < numberOfBlocks; i++) {
+                let newBlock = document.createElement('div');
+                newBlock.style.height = '40px';
+                newBlock.style.marginTop = '10px';
+                newBlock.style.borderRadius = '100%';
+                newBlock.innerHTML = `Блок № ${numberOfBlocks - i}`;
+                newBlock.style.textAlign = 'center';
+                newBlock.style.paddingTop = '19px';
+                newBlock.style.marginLeft = '10px'
+                newBlock.style.display = 'inline-block'; 
+                newBlock.style.width = '100px'
+                if (i % 2 == 0) {
+                    newBlock.style.backgroundColor = 'black';
+                    newBlock.style.color = 'white';
+                    newBlock.style.border = '2px solid white';
+                } else {
+                    newBlock.style.backgroundColor = 'white';
+                    newBlock.style.color = 'black';
+                    newBlock.style.border = '2px solid black';
+
+                }
+                main.appendChild(newBlock);
+            }
+        } 
 </script>
 <body>
     <header>
