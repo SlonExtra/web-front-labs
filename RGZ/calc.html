@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="Kirxx6n60HyBcZzm8MEP5emXqlst0XmjWYaxETLs">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>Калькулятор Банка РРБ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            background-color: rgb(184, 18, 27);
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .menu-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-transform: uppercase;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .bg-xRed {
+            background-color: #e74c3c;
+            color: #fff;
+        }
+        .text-xBlack {
+            color: #000;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+        h1 {
+            color: #000;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 0.5rem;
+            margin-top: 0.5rem;
+            border: 2px solid #e74c3c;
+            border-radius: 5px;
+        }
+        input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        button {
+            background-color: #e74c3c;
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #c0392b;
+        }
+    </style>
+    <!-- Подключение локальных стилей и скриптов -->
+    <link rel="stylesheet" href="https://www.rrb.by/build/assets/app-1ff4762c.css" />
+</head>
+<script>
+    function updateExchangeRate() {
+        fetch('https://www.cbr-xml-daily.ru/daily_json.js')
+            .then(response => response.json())
+            .then(data => {
+                const rubToDkkRate = data.Valute.DKK.Value;
+                document.getElementById('dkkRate').textContent = `1 DKK = ${rubToDkkRate.toFixed(2)} RUB`;
+                document.getElementById('rubToDkk').value = 1 / rubToDkkRate;
+                document.getElementById('dkkToRub').value = rubToDkkRate;
+            })
+            .catch(error => console.error('Ошибка при получении курса валют:', error));
+    }
+
+    function convertCurrency() {
+        const amount = parseFloat(document.getElementById('amount').value);
+        const fromRate = parseFloat(document.getElementById('rubToDkk').checked ? document.getElementById('rubToDkk').value : document.getElementById('dkkToRub').value);
+        const toRate = parseFloat(document.getElementById('rubToDkk').checked ? document.getElementById('dkkToRub').value : document.getElementById('rubToDkk').value);
+        const result = (amount * fromRate).toFixed(2);
+        document.getElementById('result').value = result;
+    }
+
+    window.onload = function() {
+        updateExchangeRate();
+    };
+</script>
+<body>
+    <div class="content">
+        <div class="hidden lg:block bg-xBlack lg:pt-[2rem] pb-[2rem]">
+            <div class="container">
+                <div class="flex justify-between gap-[1.5rem] flex-col lg:flex-row">
+                    <!-- Логотип -->
+                    <div class="hidden lg:flex flex-col shrink-0 w-full lg:w-[20%] lg:order-1">
+                        <div class="flex w-full flex-col">
+                            <div class="w-full lg:mb-4 flex shrink-0">
+                                <a class="block w-full max-w-[200px] lg:max-w-[250px]" href="/">
+                                    <img class="w-full block select-none" src="https://www.rrb.by/images/logo.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
+        
+                    <!-- Контакты -->
+                    <div class="hidden lg:flex flex-col lg:flex-row grow text-white order-2 lg:order-3 border-b border-t border-solid border-white/10 lg:border-0 py-[1.5rem]">
+                        <div class="w-full lg:px-6 lg:flex justify-center">
+                            <div class="relative w-full">
+                                <div class="mb-4">
+                                    <div class="flex items-center mb-2 select-none">
+                                        <div class="text-lg flex text-center whitespace-nowrap uppercase font-bold items-center mr-[.3em]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[1.5em] h-[1.5em] mr-[.2em]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
+                                            </svg>
+                                            <a class="select-text" href="tel:226">226</a>
+                                        </div>
+                                        <span class="font-regular text-base text-white/50"><span class="hidden lg:inline"> — с мобильных</span> <span class="select-none">24/7</span></span>
+                                    </div>
+                                    <div class="text-lg font-bold mb-2 hidden lg:block">
+                                        <a href="tel:375173370202">+375 17 337 02 02</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    <div class="sidebar">
+        <h2 class="menu-title">Меню</h2>
+        <ul>
+            <li><a href="Main.html">Главная</a></li>
+            <li><a href="calc.html">Калькулятор валют</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="video.html">Видео</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+    </div>
+        <div class="content">
+            <div class="py-[1rem] lg:py-[2rem] bg-xRed">
+                <div class="container">
+                    <div class="flex font-special-scss pb-0 text-3xl lg:text-5xl text-xBlack w-full">
+                        <div class="inline-flex">
+                            <h1>Калькулятор для датской кроны(DKK)</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h1>Калькулятор валют: RUB - DKK</h1>
+            <p>Текущий курс: <span id="dkkRate">Загрузка...</span></p>
+            <label for="amount">Сумма:</label>
+            <input type="number" id="amount" step="0.01" required>
+            <br>
+            <input type="radio" id="rubToDkk" name="conversion" value="rubToDkk" checked>
+            <label for="rubToDkk">RUB в DKK</label>
+            <input type="radio" id="dkkToRub" name="conversion" value="dkkToRub">
+            <label for="dkkToRub">DKK в RUB</label>
+            <br>
+            <label for="result">Результат:</label>
+            <input type="number" id="result" step="0.01" readonly>
+            <br>
+            <button onclick="convertCurrency()">Конвертировать</button>
+        
+    </div>
+    <div class="content">
+        <h2><strong>Датская крона (DKK)</strong></h2>
+        <p><strong>Датская крона (DKK)</strong> — национальная валюта Королевства Дания, которая также включает Фарерские острова и Гренландию. Введена в обращение в 1873 году, когда Дания присоединилась к Скандинавскому монетному союзу, в который также входили Швеция и Норвегия. Этот союз предусматривал использование единой валюты, равной 0,403 грамма чистого золота. Однако после распада монетного союза в 1914 году, Дания продолжила использовать крону как свою основную валюту.</p>
+    
+        <h3><strong>Делимость и номиналы</strong></h3>
+        <p>Датская крона делится на 100 оре (в переводе с датского — "серебряные монеты"). В обращении находятся монеты номиналом 50 оре и 1, 2, 5, 10 и 20 крон, а также банкноты в 50, 100, 200, 500 и 1000 крон. Дизайн банкнот и монет регулярно обновляется, при этом на них часто изображаются известные датские личности, места и символы, что делает их не только средством платежа, но и важным культурным элементом.</p>
+    
+        <h3><strong>Cтатус валюты</strong></h3>
+        <p>Датская крона является свободно конвертируемой валютой и широко используется в международных финансовых операциях. Однако, несмотря на это, Дания остается вне еврозоны, хотя и является членом Европейского союза. В 1992 году, во время Маастрихтского договора, Дания получила право отказаться от перехода на евро, что было подтверждено на референдуме. С тех пор датчане неоднократно голосовали против перехода на евро, что укрепляет позицию кроны как стабильной и независимой валюты.</p>
+    
+        <h3><strong>Курс к другим валютам</strong></h3>
+        <p>Курс датской кроны к другим валютам, включая российский рубль, регулярно меняется в зависимости от экономических условий и политической ситуации. Для конвертации валюты и получения актуального курса вы можете воспользоваться нашим <a href="currency-calculator.html">калькулятором</a>.</p>
+    </div>
+</body>
+<footer>
+        <div class="content">
+            <div class="py-12 bg-xBlack">
+                <div class="container">
+                    <div class="flex flex-col ">
+                        <div class="flex shrink-0 flex-col ">
+                            <div class="mb-6">
+                                <img class="block w-full max-w-[250px] select-none" title="ЗАО РРБ-Банк" alt="РРБ-Банк" src="https://www.rrb.by/images/logo.svg">
+                            </div>
+                            <div class="text-white/50">
+                                <ul>
+                                    <li><a href="tel:226">226</a> - с мобильных 24/7</li>
+                                    <li><a href="tel:375173370202">+375 17 337 02 02</a></li>
+                                </ul>
+                            </div>
+                            <div class="text-white/50">Головной офис:<br> Беларусь, Минск, ул. Краснозвездная, 18</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="text-white/50 w-full lg:w-1/2 text-base">
+                                ЗАО «РРБ-Банк»
+                                <div>Лицензия на осуществление банковской деятельности номер 21 от 12 апреля 2023 года выдана Национальным банком Республики Беларусь</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</html>

@@ -31,12 +31,13 @@
             padding: 20px;
         }
         .menu-title {
-            font-size: 1.5em; /* Increase the font size */
-            font-weight: bold; /* Make the text bold */
-            color: #333; /* Change the text color */
-            background-color: #f0f0f0; /* Add a background color */
-            padding: 10px; /* Add some padding around the text */
-            text-transform: uppercase; /* Convert text to uppercase */
+            font-size: 1.5em; 
+            font-weight: bold; 
+            color: #333; 
+            background-color: #f0f0f0; 
+            padding: 10px; 
+            text-transform: uppercase; 
+            font-family: Georgia, 'Times New Roman', Times, serif;
         }
     </style>
     <!-- Подключение локальных стилей и скриптов -->
@@ -133,10 +134,7 @@
         <p class="mb-4">Банк РРБ – это Банк, который белорусские предприниматели считают «своим». Современный Банк «быстрого реагирования», новых технологий, смелых нетривиальных решений. <br></p>
     </div>
 
-    <div class="text-2xl font-special-scss font-bold text-xBlack text-lg lg:text-3xl mb-4">Миссия</div>
-    <div class="prose relative w-full lg:prose-base max-w-[100%] text-base">
-        <p class="mb-4">Банк РРБ – это Банк, способный менятьcя и трансформировать бизнес, жизнь, настоящее и будущее. <br></p>
-    </div>
+    
                                
     <div >
         <div class="text-2xl font-special-scss font-bold text-xBlack text-lg lg:text-3xl mb-4">Информация о деятельности</div>
@@ -192,32 +190,34 @@
         </div>
         <projects-slider></projects-slider>
     </div>
-    <div class="content">
-    <div class="py-12 bg-xBlack">
-        <div class="container">
-            <div class="flex flex-col gap-[2rem] lg:flex-row mb-12">
-                <div class="flex shrink-0 flex-col gap-[2rem] w-full lg:w-1/3 lg:pr-12">
-                    <div class="mb-6">
-                        <img class="block w-full max-w-[250px] select-none" title="ЗАО РРБ-Банк" alt="РРБ-Банк" src="https://www.rrb.by/images/logo.svg">
-                    </div>
-                    <div class="text-white/50">
-                        <ul>
-                            <li><a href="tel:226">226</a> - с мобильных 24/7</li>
-                            <li><a href="tel:375173370202">+375 17 337 02 02</a></li>
-                        </ul>
-                    </div>
-                    <div class="text-white/50">Головной офис:<br> Беларусь, Минск, ул. Краснозвездная, 18</div>
-                </div>
-                <div class="flex flex-col">
-                    <div class="text-white/50 w-full lg:w-1/2 text-base">
-                        ЗАО «РРБ-Банк»
-                        <div>Лицензия на осуществление банковской деятельности номер 21 от 12 апреля 2023 года выдана Национальным банком Республики Беларусь</div>
+    <footer>
+        <div class="content">
+            <div class="py-12 bg-xBlack">
+                <div class="container">
+                    <div class="flex flex-col ">
+                        <div class="flex shrink-0 flex-col ">
+                            <div class="mb-6">
+                                <img class="block w-full max-w-[250px] select-none" title="ЗАО РРБ-Банк" alt="РРБ-Банк" src="https://www.rrb.by/images/logo.svg">
+                            </div>
+                            <div class="text-white/50">
+                                <ul>
+                                    <li><a href="tel:226">226</a> - с мобильных 24/7</li>
+                                    <li><a href="tel:375173370202">+375 17 337 02 02</a></li>
+                                </ul>
+                            </div>
+                            <div class="text-white/50">Головной офис:<br> Беларусь, Минск, ул. Краснозвездная, 18</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="text-white/50 w-full lg:w-1/2 text-base">
+                                ЗАО «РРБ-Банк»
+                                <div>Лицензия на осуществление банковской деятельности номер 21 от 12 апреля 2023 года выдана Национальным банком Республики Беларусь</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    </div>
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+</footer>
+    
     </body>
     </html>

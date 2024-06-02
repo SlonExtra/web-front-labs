@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="Kirxx6n60HyBcZzm8MEP5emXqlst0XmjWYaxETLs">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>Видео Банка РРБ</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 200px;
+            background-color: rgb(184, 18, 27);
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .content {
+            margin-left: 220px;
+            padding: 20px;
+        }
+        .menu-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            background-color: #f0f0f0;
+            padding: 10px;
+            text-transform: uppercase;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+        }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+        }       
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+    <script>
+        function addComment() {
+            const commentText = document.getElementById('comment').value.trim();
+            if (commentText) {
+                const commentElement = document.createElement('p');
+                commentElement.textContent = commentText;
+                document.getElementById('comments').appendChild(commentElement);
+                localStorage.setItem('comments', document.getElementById('comments').innerHTML);
+                document.getElementById('comment').value = '';
+            }
+        }
+
+        window.onload = function() {
+            const savedComments = localStorage.getItem('comments');
+            if (savedComments) {
+                document.getElementById('comments').innerHTML = savedComments;
+            }
+        };
+    </script>
+    <!-- Подключение локальных стилей и скриптов -->
+    <link rel="stylesheet" href="https://www.rrb.by/build/assets/app-1ff4762c.css" />
+</head>
+<body>
+    <div class="content">
+        <div class="hidden lg:block bg-xBlack lg:pt-[2rem] pb-[2rem]">
+            <div class="container">
+                <div class="flex justify-between gap-[1.5rem] flex-col lg:flex-row">
+                    <!-- Логотип -->
+                    <div class="hidden lg:flex flex-col shrink-0 w-full lg:w-[20%] lg:order-1">
+                        <div class="flex w-full flex-col">
+                            <div class="w-full lg:mb-4 flex shrink-0">
+                                <a class="block w-full max-w-[200px] lg:max-w-[250px]" href="/">
+                                    <img class="w-full block select-none" src="https://www.rrb.by/images/logo.svg" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                   
+        
+                    <!-- Контакты -->
+                    <div class="hidden lg:flex flex-col lg:flex-row grow text-white order-2 lg:order-3 border-b border-t border-solid border-white/10 lg:border-0 py-[1.5rem]">
+                        <div class="w-full lg:px-6 lg:flex justify-center">
+                            <div class="relative w-full">
+                                <div class="mb-4">
+                                    <div class="flex items-center mb-2 select-none">
+                                        <div class="text-lg flex text-center whitespace-nowrap uppercase font-bold items-center mr-[.3em]">
+                                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-[1.5em] h-[1.5em] mr-[.2em]">
+                                                <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3"/>
+                                            </svg>
+                                            <a class="select-text" href="tel:226">226</a>
+                                        </div>
+                                        <span class="font-regular text-base text-white/50"><span class="hidden lg:inline"> — с мобильных</span> <span class="select-none">24/7</span></span>
+                                    </div>
+                                    <div class="text-lg font-bold mb-2 hidden lg:block">
+                                        <a href="tel:375173370202">+375 17 337 02 02</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="sidebar">
+        <h2 class="menu-title">Меню</h2>
+        <ul>
+            <li><a href="Main.html">Главная</a></li>
+            <li><a href="calc.html">Калькулятор валют</a></li>
+            <li><a href="news.html">Новости</a></li>
+            <li><a href="video.html">Видео</a></li>
+            <li><a href="contact.html">Контакты</a></li>
+        </ul>
+    </div>
+        <div class="content">
+            <div class="py-[1rem] lg:py-[2rem] bg-xRed">
+                <div class="container">
+                    <div class="flex font-special-scss pb-0 text-3xl lg:text-5xl text-xBlack w-full">
+                        <div class="inline-flex">
+                            <h1>Видео</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Добавление видео на страницу -->
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/dMLl7XubfUI?list=PLZjIPJzDFF5SLJJCfQoEYHss8d0cHr9yM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <h1>Поделитесь своим мнением о видео!</h1>
+    <div class="comment-section">
+        <div class="comment-input">
+            <label for="comment">Ваш комментарий:</label>
+            <input type="text" id="comment" name="comment">
+            <button onclick="addComment()">Опубликовать</button>
+        </div>
+        <div id="comments"></div>
+    </div>
+    </div>
+    <footer>
+        <div class="content">
+            <div class="py-12 bg-xBlack">
+                <div class="container">
+                    <div class="flex flex-col ">
+                        <div class="flex shrink-0 flex-col ">
+                            <div class="mb-6">
+                                <img class="block w-full max-w-[250px] select-none" title="ЗАО РРБ-Банк" alt="РРБ-Банк" src="https://www.rrb.by/images/logo.svg">
+                            </div>
+                            <div class="text-white/50">
+                                <ul>
+                                    <li><a href="tel:226">226</a> - с мобильных 24/7</li>
+                                    <li><a href="tel:375173370202">+375 17 337 02 02</a></li>
+                                </ul>
+                            </div>
+                            <div class="text-white/50">Головной офис:<br> Беларусь, Минск, ул. Краснозвездная, 18</div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="text-white/50 w-full lg:w-1/2 text-base">
+                                ЗАО «РРБ-Банк»
+                                <div>Лицензия на осуществление банковской деятельности номер 21 от 12 апреля 2023 года выдана Национальным банком Республики Беларусь</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</footer>
+</body>
+</html>
