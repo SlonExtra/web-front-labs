@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Руди Дмитрий Константинович. Лабораторная 8</title>
     <link rel="stylesheet" href="../main.css">
-    <link rel="shortcut icon" href="../favicon/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../favicon/favicon-16x16.png">
-    <link rel="icon" href="../favicon/favicon-32x32.png">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="..favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
     <script src="time.js"></script>
     <style>
         #output {
@@ -113,7 +113,37 @@
             <div id="time" class="textTime">00:00:00</div>
         </div>
         <div id="seconds">00</div>
-        
+        <div id="clock">
+            <div id="second-hand"></div>
+            <div id="minute-hand"></div>
+            <div id="hour-hand"></div>
+            <!-- Тики -->
+            <div class="tick" style="transform: translateX(-50%) rotate(0deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(30deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(60deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(90deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(120deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(150deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(180deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(210deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(240deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(270deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(300deg) translateY(-90px);"></div>
+            <div class="tick" style="transform: translateX(-50%) rotate(330deg) translateY(-90px);"></div>
+            <!-- Числа -->
+            <div class="number" style="transform: translateX(-50%) rotate(0deg) translateY(-80px);">12</div>
+            <div class="number" style="transform: translateX(-50%) rotate(30deg) translateY(-80px);">1</div>
+            <div class="number" style="transform: translateX(-50%) rotate(60deg) translateY(-80px);">2</div>
+            <div class="number" style="transform: translateX(-50%) rotate(90deg) translateY(-80px);">3</div>
+            <div class="number" style="transform: translateX(-50%) rotate(120deg) translateY(-80px);">4</div>
+            <div class="number" style="transform: translateX(-50%) rotate(150deg) translateY(-80px);">5</div>
+            <div class="number" style="transform: translateX(-50%) rotate(180deg) translateY(-80px);">6</div>
+            <div class="number" style="transform: translateX(-50%) rotate(210deg) translateY(-80px);">7</div>
+            <div class="number" style="transform: translateX(-50%) rotate(240deg) translateY(-80px);">8</div>
+            <div class="number" style="transform: translateX(-50%) rotate(270deg) translateY(-80px);">9</div>
+            <div class="number" style="transform: translateX(-50%) rotate(300deg) translateY(-80px);">10</div>
+            <div class="number" style="transform: translateX(-50%) rotate(330deg) translateY(-80px);">11</div>
+        </div>
     </main>
 
     <footer>
