@@ -71,7 +71,23 @@
                 День недели: <span id="current-day-of-week" style="font-weight: bold;"></span><br>
             </div>
         </div><br>
-        
+        <div id="output2">
+            <div id="input-section">
+                <label for="input-date">Дата:</label>
+                <input type="number" id="input-date" min="1" max="31" placeholder="День">
+            
+                <label for="input-month">Месяц:</label>
+                <input type="number" id="input-month" min="1" max="12" placeholder="Месяц">
+            
+                <label for="input-year">Год:</label>
+                <input type="number" id="input-year" min="1900" max="2100" placeholder="Год">
+            
+                <button class="button" onclick="getDayOfWeek()">День недели</button>
+                
+            </div>
+            
+            <div id="output-day-of-week" style="font-weight: bold;"></div>
+        </div>
     </main>
 
     <footer>
